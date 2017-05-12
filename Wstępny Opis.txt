@@ -1,0 +1,12 @@
+Wstêpny opis aplikacji.
+
+
+Aplikacja bêdzie serwisem zarz¹dzaj¹cym turniejami sportowymi. 
+G³own¹ funkcjonalnoœci¹ aplikacji bêdzie wyœwietlanie drzewka 
+eliminacji oraz system rejestracji uczestników. Dodatkow¹ 
+fukcjonalnoœci¹ mog¹ byæ statystki rozegranych meczów.
+Aplikacja bêdzie na platformie webowej. Planowana technologia
+w której bedzie napisany program to Asp.NET MVC.
+
+Rafa³ Leszczewski
+ 
