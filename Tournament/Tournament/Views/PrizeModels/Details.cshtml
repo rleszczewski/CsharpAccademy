@@ -1,0 +1,58 @@
+﻿@model Tournament.Models.PrizeModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PrizeModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tournament.TournamentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tournament.TournamentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrizeAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrizeAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrizePercentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrizePercentage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PrizeModelId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

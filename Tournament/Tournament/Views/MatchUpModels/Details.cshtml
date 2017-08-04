@@ -1,0 +1,34 @@
+﻿@model Tournament.Models.MatchUpModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MatchUpModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Winner.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Winner.TeamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchupRound)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchupRound)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MatchUpModelId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

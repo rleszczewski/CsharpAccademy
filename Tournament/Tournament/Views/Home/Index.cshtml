@@ -1,0 +1,14 @@
+﻿@model List<Tournament.Models.MatchUpEntryModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+@foreach (var item in Model)
+{
+    @Html.TextBoxFor(x => item.TeamCompeting.TeamName)
+    @Html.TextBoxFor(x => item.Score)
+}
+</div>
