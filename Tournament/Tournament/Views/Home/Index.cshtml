@@ -1,14 +1,42 @@
-﻿@model List<Tournament.Models.MatchUpEntryModel>
+﻿@model Tournament.Models.TournamentModel
 @{
     ViewBag.Title = "Home Page";
+    Model.Rounds.OrderBy(x => x.MatchupRound).ThenBy(x => x.MatchUpModelId);
+
+    var teamsSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Rounds.Where(x => x.MatchupRound == 1).Select(x => new[] { x.Entries.ElementAt(0).TeamCompeting.TeamName, x.Entries.ElementAt(1).TeamCompeting.TeamName }));
+    var results = new List<List<int[]>>();
+
+    foreach (var round in Model.Rounds.Select(x => x.MatchupRound).Distinct().Reverse())
+    {
+        results.Add(Model.Rounds.Where(x => x.MatchupRound == round).Select(x => new[] { x.Entries.ElementAt(0).Score, x.Entries.ElementAt(1).Score }).ToList());
+    }
+
+    var resultSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(results);
 }
-
-
+@section scripts
+{
+    <script type="text/javascript" src="http://rawgit.com/teijo/jquery-bracket/master/dist/jquery.bracket.min.js"></script>
+}
+@section styles
+{
+    <link rel="stylesheet" type="text/css" href="http://rawgit.com/teijo/jquery-bracket/master/dist/jquery.bracket.min.css" />   
+}
 
 <div class="row">
-@foreach (var item in Model)
-{
-    @Html.TextBoxFor(x => item.TeamCompeting.TeamName)
-    @Html.TextBoxFor(x => item.Score)
-}
+    <h2>@Model.TournamentName</h2>
+    <h4>@Model.EntryFee</h4>
+
+    <div id="bracketTree"></div>
 </div>
+<script type="text/javascript">
+    var teams = @Html.Raw(teamsSerialized);
+    var results = @Html.Raw(resultSerialized);
+    var data = {};
+    data["teams"] = teams;
+    data["results"] = results;
+
+    $("#bracketTree").bracket({
+        skipConsolationRound: true,
+        init: data
+    });
+</script>

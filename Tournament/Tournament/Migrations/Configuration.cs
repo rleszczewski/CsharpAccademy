@@ -1,11 +1,8 @@
 namespace Tournament.Migrations
 {
-    using System;
+    using Models;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
-    using Tournament.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Tournament.Models.TournamentContext>
     {
@@ -16,7 +13,6 @@ namespace Tournament.Migrations
 
         protected override void Seed(Tournament.Models.TournamentContext context)
         {
-
             var Team1 = new TeamModel() { TeamId = 1, TeamName = "Manhatan", TeamMembers = new List<PersonModel>() };
             var Team2 = new TeamModel() { TeamId = 2, TeamName = "VP", TeamMembers = new List<PersonModel>() };
             var Team3 = new TeamModel() { TeamId = 3, TeamName = "Faze", TeamMembers = new List<PersonModel>() };
@@ -83,18 +79,50 @@ namespace Tournament.Migrations
             Team7.TeamMembers.Add(Person14);
             Team8.TeamMembers.Add(Person15);
             Team8.TeamMembers.Add(Person16);
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var matchup1 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team1, Score = 1 }, new MatchUpEntryModel { TeamCompeting = Team2, Score = 2 } }, MatchupRound = 3 };
+            var matchup2 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team1, Score = 2 }, new MatchUpEntryModel { TeamCompeting = Team3, Score = 1 } }, MatchupRound = 2 };
+            var matchup3 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team2, Score = 2 }, new MatchUpEntryModel { TeamCompeting = Team4, Score = 1 } }, MatchupRound = 2 };
+            var matchup4 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team1, Score = 2 }, new MatchUpEntryModel { TeamCompeting = Team5, Score = 1 } }, MatchupRound = 1 };
+            var matchup5 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team2, Score = 2 }, new MatchUpEntryModel { TeamCompeting = Team6, Score = 1 } }, MatchupRound = 1 };
+            var matchup6 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team3, Score = 2 }, new MatchUpEntryModel { TeamCompeting = Team7, Score = 1 } }, MatchupRound = 1 };
+            var matchup7 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team4, Score = 2 }, new MatchUpEntryModel { TeamCompeting = Team8, Score = 1 } }, MatchupRound = 1 };
+
+            context.Tournamets.Add(new TournamentModel
+            {
+                EnteredTeams = new List<TeamModel>
+                {
+                    Team1,
+                    Team2,
+                    Team3,
+                    Team4,
+                    Team5,
+                    Team6,
+                    Team7,
+                    Team8,
+                },
+                EntryFee = 123,
+                Prizes = new List<PrizeModel>
+                {
+                    new PrizeModel
+                    {
+                        PlaceName = "1",
+                        PlaceNumber = 1,
+                        PrizeAmount = 123
+                    }
+                },
+                Rounds = new List<MatchUpModel>
+                {
+                    matchup1,
+                    matchup2,
+                    matchup3,
+                    matchup4,
+                    matchup5,
+                    matchup6,
+                    matchup7
+                },
+                TournamentName = "kurwo jebana"
+            });
         }
     }
 }

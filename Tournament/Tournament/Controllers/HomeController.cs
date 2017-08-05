@@ -11,10 +11,10 @@ namespace Tournament.Controllers
     public class HomeController : Controller
     {
         private TournamentContext db = new TournamentContext();
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            var tm = db.MatchUpEntries.Include(x => x.TeamCompeting);
-            return View(tm.ToList());
+            var tm = db.Tournamets.First(x => x.TournamentModelId == id);
+            return View(tm);
 
         }
 

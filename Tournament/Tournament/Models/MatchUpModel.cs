@@ -14,14 +14,22 @@ namespace Tournament.Models
             Entries = new List<MatchUpEntryModel>();
 
         }
-        [Key, ForeignKey("Winner")]
+
+        [Key]
         public int MatchUpModelId { get; set; }
+
         public int MatchupRound { get; set; }
 
         public virtual ICollection<MatchUpEntryModel> Entries { get; set; }
 
+        public int? WinnerId { get; set; }
+
+        [ForeignKey("WinnerId")]
         public virtual TeamModel Winner { get; set; }
 
+        public int TournamentId { get; set; }
+
+        [ForeignKey("TournamentId")]
         public virtual TournamentModel Tournament { get; set; }
     }
 }

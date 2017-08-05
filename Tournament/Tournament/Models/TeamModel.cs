@@ -13,6 +13,7 @@ namespace Tournament.Models
             TeamMembers = new List<PersonModel>();
             this.Tournaments = new HashSet<TournamentModel>();
         }
+
         [Key]
         public int TeamId { get; set; }
 
@@ -22,8 +23,6 @@ namespace Tournament.Models
 
         public virtual ICollection<TournamentModel> Tournaments { get; set; }
 
-        public virtual MatchUpEntryModel MatchupEntry { get; set; }
-
-        public virtual MatchUpModel Matchup { get; set; }
+        public virtual ICollection<MatchUpEntryModel> MatchupEntry { get; set; }
     }
 }

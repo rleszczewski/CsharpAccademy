@@ -157,9 +157,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708041405397_init.cs" />
-    <Compile Include="Migrations\201708041405397_init.Designer.cs">
-      <DependentUpon>201708041405397_init.cs</DependentUpon>
+    <Compile Include="Migrations\201708051409403_init.cs" />
+    <Compile Include="Migrations\201708051409403_init.Designer.cs">
+      <DependentUpon>201708051409403_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MatchUpEntryModel.cs" />
@@ -258,8 +258,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708041405397_init.resx">
-      <DependentUpon>201708041405397_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708051409403_init.resx">
+      <DependentUpon>201708051409403_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

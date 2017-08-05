@@ -9,11 +9,19 @@ namespace Tournament.Models
 {
     public class MatchUpEntryModel
     {
-        [Key, ForeignKey("TeamCompeting")]
+        [Key]
         public int MatchUpEntryModelId { get; set; }
 
+        public int TeamCompetingId { get; set; }
+
+        [ForeignKey("TeamCompetingId")]
         public virtual TeamModel TeamCompeting { get; set; }
-        public double Score { get; set; }
+
+        public int Score { get; set; }
+
+        public int ParentMatchupId { get; set; }
+
+        [ForeignKey("ParentMatchupId")]
         public virtual MatchUpModel ParentMatchup { get; set; }
     }
 }

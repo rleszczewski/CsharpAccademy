@@ -11,7 +11,10 @@ namespace Tournament.Models
         [Key]
         public int TournamentModelId { get; set; }
 
+        [Display(Name = "Tournament Name")]
         public string TournamentName { get; set; }
+
+        [Display(Name = "Entry Fee")]
         public decimal EntryFee { get; set; }
 
         public virtual ICollection<TeamModel> EnteredTeams { get; set; }

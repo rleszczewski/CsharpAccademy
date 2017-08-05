@@ -17,7 +17,7 @@ namespace Tournament.Controllers
         // GET: TeamModels
         public ActionResult Index()
         {
-            var teams = db.Teams.Include(t => t.Matchup).Include(t => t.MatchupEntry);
+            var teams = db.Teams;
             return View(teams.ToList());
         }
 
