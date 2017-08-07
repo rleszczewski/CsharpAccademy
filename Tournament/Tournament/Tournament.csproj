@@ -148,18 +148,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MatchUpEntryModelsController.cs" />
-    <Compile Include="Controllers\MatchUpModelsController.cs" />
     <Compile Include="Controllers\PersonModelsController.cs" />
-    <Compile Include="Controllers\PrizeModelsController.cs" />
-    <Compile Include="Controllers\TeamModelsController.cs" />
-    <Compile Include="Controllers\TournamentModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708051409403_init.cs" />
-    <Compile Include="Migrations\201708051409403_init.Designer.cs">
-      <DependentUpon>201708051409403_init.cs</DependentUpon>
+    <Compile Include="Migrations\201708072007326_init.cs" />
+    <Compile Include="Migrations\201708072007326_init.Designer.cs">
+      <DependentUpon>201708072007326_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MatchUpEntryModel.cs" />
@@ -208,36 +203,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\MatchUpEntryModels\Create.cshtml" />
-    <Content Include="Views\MatchUpEntryModels\Delete.cshtml" />
-    <Content Include="Views\MatchUpEntryModels\Details.cshtml" />
-    <Content Include="Views\MatchUpEntryModels\Edit.cshtml" />
-    <Content Include="Views\MatchUpEntryModels\Index.cshtml" />
-    <Content Include="Views\MatchUpModels\Create.cshtml" />
-    <Content Include="Views\MatchUpModels\Delete.cshtml" />
-    <Content Include="Views\MatchUpModels\Details.cshtml" />
-    <Content Include="Views\MatchUpModels\Edit.cshtml" />
-    <Content Include="Views\MatchUpModels\Index.cshtml" />
-    <Content Include="Views\PersonModels\Create.cshtml" />
-    <Content Include="Views\PersonModels\Delete.cshtml" />
-    <Content Include="Views\PersonModels\Details.cshtml" />
-    <Content Include="Views\PersonModels\Edit.cshtml" />
+    <Content Include="Views\PersonModels\Register.cshtml" />
+    <Content Include="Views\PersonModels\Login.cshtml" />
+    <Content Include="Views\PersonModels\LoggedIn.cshtml" />
     <Content Include="Views\PersonModels\Index.cshtml" />
-    <Content Include="Views\PrizeModels\Create.cshtml" />
-    <Content Include="Views\PrizeModels\Delete.cshtml" />
-    <Content Include="Views\PrizeModels\Details.cshtml" />
-    <Content Include="Views\PrizeModels\Edit.cshtml" />
-    <Content Include="Views\PrizeModels\Index.cshtml" />
-    <Content Include="Views\TeamModels\Create.cshtml" />
-    <Content Include="Views\TeamModels\Delete.cshtml" />
-    <Content Include="Views\TeamModels\Details.cshtml" />
-    <Content Include="Views\TeamModels\Edit.cshtml" />
-    <Content Include="Views\TeamModels\Index.cshtml" />
-    <Content Include="Views\TournamentModels\Create.cshtml" />
-    <Content Include="Views\TournamentModels\Delete.cshtml" />
-    <Content Include="Views\TournamentModels\Details.cshtml" />
-    <Content Include="Views\TournamentModels\Edit.cshtml" />
-    <Content Include="Views\TournamentModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -258,8 +227,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708051409403_init.resx">
-      <DependentUpon>201708051409403_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708072007326_init.resx">
+      <DependentUpon>201708072007326_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

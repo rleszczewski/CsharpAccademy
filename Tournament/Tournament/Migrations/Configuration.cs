@@ -21,22 +21,22 @@ namespace Tournament.Migrations
             var Team6 = new TeamModel() { TeamId = 6, TeamName = "asd", TeamMembers = new List<PersonModel>() };
             var Team7 = new TeamModel() { TeamId = 7, TeamName = "qwe", TeamMembers = new List<PersonModel>() };
             var Team8 = new TeamModel() { TeamId = 8, TeamName = "wer", TeamMembers = new List<PersonModel>() };
-            var Person = new PersonModel() { PersonId = 1, Email = "123", NickName = "Raf", FirstName = "raffa", LastName = "daddo" };
-            var Person2 = new PersonModel() { PersonId = 2, Email = "123", NickName = "Raf2", FirstName = "raffa", LastName = "daddo" };
-            var Person3 = new PersonModel() { PersonId = 3, Email = "123", NickName = "baran2", FirstName = "raffa", LastName = "daddo" };
-            var Person4 = new PersonModel() { PersonId = 4, Email = "123", NickName = "baran3", FirstName = "raffa", LastName = "daddo" };
-            var Person5 = new PersonModel() { PersonId = 5, Email = "123", NickName = "qwe", FirstName = "raffa", LastName = "daddo" };
-            var Person6 = new PersonModel() { PersonId = 6, Email = "123", NickName = "qwe2", FirstName = "raffa", LastName = "daddo" };
-            var Person7 = new PersonModel() { PersonId = 7, Email = "123", NickName = "asd", FirstName = "raffa", LastName = "daddo" };
-            var Person8 = new PersonModel() { PersonId = 8, Email = "123", NickName = "asd2", FirstName = "raffa", LastName = "daddo" };
-            var Person9 = new PersonModel() { PersonId = 9, Email = "123", NickName = "zxc", FirstName = "raffa", LastName = "daddo" };
-            var Person10 = new PersonModel() { PersonId = 10, Email = "123", NickName = "zcx2", FirstName = "raffa", LastName = "daddo" };
-            var Person11 = new PersonModel() { PersonId = 11, Email = "123", NickName = "tyu2", FirstName = "raffa", LastName = "daddo" };
-            var Person12 = new PersonModel() { PersonId = 12, Email = "123", NickName = "tyu", FirstName = "raffa", LastName = "daddo" };
-            var Person13 = new PersonModel() { PersonId = 13, Email = "123", NickName = "iop", FirstName = "raffa", LastName = "daddo" };
-            var Person14 = new PersonModel() { PersonId = 14, Email = "123", NickName = "iop2", FirstName = "raffa", LastName = "daddo" };
-            var Person15 = new PersonModel() { PersonId = 15, Email = "123", NickName = "jkl", FirstName = "raffa", LastName = "daddo" };
-            var Person16 = new PersonModel() { PersonId = 16, Email = "123", NickName = "jkl2", FirstName = "raffa", LastName = "daddo" };
+            var Person = new PersonModel() { PersonId = 1, Email = "123@wp.pl", NickName = "Raf", FirstName = "raffa", LastName = "daddo",Password ="1234", ConfirmPassword="1234" };
+            var Person2 = new PersonModel() { PersonId = 2, Email = "123@wp.pl", NickName = "Raf2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person3 = new PersonModel() { PersonId = 3, Email = "123@wp.pl", NickName = "baran2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person4 = new PersonModel() { PersonId = 4, Email = "123@wp.pl", NickName = "baran3", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person5 = new PersonModel() { PersonId = 5, Email = "123@wp.pl", NickName = "qwe", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person6 = new PersonModel() { PersonId = 6, Email = "123@wp.pl", NickName = "qwe2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person7 = new PersonModel() { PersonId = 7, Email = "123@wp.pl", NickName = "asd", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person8 = new PersonModel() { PersonId = 8, Email = "123@wp.pl", NickName = "asd2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person9 = new PersonModel() { PersonId = 9, Email = "123@wp.pl", NickName = "zxc", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person10 = new PersonModel() { PersonId = 10, Email = "123@wp.pl", NickName = "zcx2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person11 = new PersonModel() { PersonId = 11, Email = "123@wp.pl", NickName = "tyu2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person12 = new PersonModel() { PersonId = 12, Email = "123@wp.pl", NickName = "tyu", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person13 = new PersonModel() { PersonId = 13, Email = "123@wp.pl", NickName = "iop", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person14 = new PersonModel() { PersonId = 14, Email = "123@wp.pl", NickName = "iop2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person15 = new PersonModel() { PersonId = 15, Email = "123@wp.pl", NickName = "jkl", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
+            var Person16 = new PersonModel() { PersonId = 16, Email = "123@wp.pl", NickName = "jkl2", FirstName = "raffa", LastName = "daddo", Password = "1234", ConfirmPassword = "1234" };
             context.TournamentModels.Add(Person);
             context.TournamentModels.Add(Person2);
             context.TournamentModels.Add(Person3);
@@ -121,7 +121,49 @@ namespace Tournament.Migrations
                     matchup6,
                     matchup7
                 },
-                TournamentName = "kurwo jebana"
+                TournamentName = "First Tournament"
+            });
+            var matchup8 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team6, Score = 1 }, new MatchUpEntryModel { TeamCompeting = Team7, Score = 2 } }, MatchupRound = 3 };
+            var matchup9 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team6, Score = 2 }, new MatchUpEntryModel { TeamCompeting = Team5, Score = 1 } }, MatchupRound = 2 };
+            var matchup10 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team8, Score = 1 }, new MatchUpEntryModel { TeamCompeting = Team7, Score = 2 } }, MatchupRound = 2 };
+            var matchup11 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team1, Score = 1 }, new MatchUpEntryModel { TeamCompeting = Team5, Score = 2 } }, MatchupRound = 1 };
+            var matchup12 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team2, Score = 1 }, new MatchUpEntryModel { TeamCompeting = Team6, Score = 2 } }, MatchupRound = 1 };
+            var matchup13 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team3, Score = 1 }, new MatchUpEntryModel { TeamCompeting = Team7, Score = 2 } }, MatchupRound = 1 };
+            var matchup14 = new MatchUpModel { Entries = new List<MatchUpEntryModel> { new MatchUpEntryModel { TeamCompeting = Team4, Score = 1 }, new MatchUpEntryModel { TeamCompeting = Team8, Score = 2 } }, MatchupRound = 1 };
+            context.Tournamets.Add(new TournamentModel
+            {
+                EnteredTeams = new List<TeamModel>
+                {
+                    Team1,
+                    Team2,
+                    Team3,
+                    Team4,
+                    Team5,
+                    Team6,
+                    Team7,
+                    Team8,
+                },
+                EntryFee = 2000,
+                Prizes = new List<PrizeModel>
+                {
+                    new PrizeModel
+                    {
+                        PlaceName = "1",
+                        PlaceNumber = 1,
+                        PrizeAmount = 123
+                    }
+                },
+                Rounds = new List<MatchUpModel>
+                {
+                    matchup8,
+                    matchup9,
+                    matchup10,
+                    matchup11,
+                    matchup12,
+                    matchup13,
+                    matchup14
+                },
+                TournamentName = "Second Tournament"
             });
         }
     }

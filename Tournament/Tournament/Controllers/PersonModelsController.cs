@@ -12,121 +12,78 @@ namespace Tournament.Controllers
 {
     public class PersonModelsController : Controller
     {
-        private TournamentContext db = new TournamentContext();
-
-        // GET: PersonModels
         public ActionResult Index()
         {
-            var tournamentModels = db.TournamentModels.Include(p => p.TeamModel);
-            return View(tournamentModels.ToList());
-        }
-
-        // GET: PersonModels/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            using (TournamentContext db = new TournamentContext())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View(db.TournamentModels.ToList());
             }
-            PersonModel personModel = db.TournamentModels.Find(id);
-            if (personModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(personModel);
         }
-
-        // GET: PersonModels/Create
-        public ActionResult Create()
+        public ActionResult Register()
         {
-            ViewBag.TeamRefId = new SelectList(db.Teams, "TeamId", "TeamName");
+            return View();
+
+        }
+        // POST: Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(PersonModel Account)
+        {
+            if (ModelState.IsValid)
+            {
+                using (TournamentContext db = new TournamentContext())
+                {
+                    db.TournamentModels.Add(Account);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                ViewBag.Message = Account.FirstName + " " + Account.LastName + " succesful register.";
+
+            }
             return View();
         }
 
-        // POST: PersonModels/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        public ActionResult Login()
+        {
+            return View();
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonId,NickName,FirstName,LastName,Email,TeamRefId")] PersonModel personModel)
+        public ActionResult Login(PersonModel user)
         {
-            if (ModelState.IsValid)
+            using (TournamentContext db = new TournamentContext())
             {
-                db.TournamentModels.Add(personModel);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var usr = db.TournamentModels.Where(u => u.NickName == user.NickName && u.Password == user.Password).FirstOrDefault();
+                if (usr != null)
+                {
+                    Session["PersonId"] = usr.PersonId.ToString();
+                    Session["NickName"] = usr.NickName.ToString();
+                    return RedirectToAction("LoggedIn");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Username or Password is not correct");
+                }
+
             }
-
-            ViewBag.TeamRefId = new SelectList(db.Teams, "TeamId", "TeamName", personModel.TeamRefId);
-            return View(personModel);
+            return View();
         }
-
-        // GET: PersonModels/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult LoggedIn()
         {
-            if (id == null)
+            using (TournamentContext db = new TournamentContext())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PersonModel personModel = db.TournamentModels.Find(id);
-            if (personModel == null)
+                
+                if (Session["PersonId"] != null)
             {
-                return HttpNotFound();
+                return View(db.Tournamets.ToList());
             }
-            ViewBag.TeamRefId = new SelectList(db.Teams, "TeamId", "TeamName", personModel.TeamRefId);
-            return View(personModel);
-        }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+            
 
-        // POST: PersonModels/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonId,NickName,FirstName,LastName,Email,TeamRefId")] PersonModel personModel)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(personModel).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
             }
-            ViewBag.TeamRefId = new SelectList(db.Teams, "TeamId", "TeamName", personModel.TeamRefId);
-            return View(personModel);
         }
-
-        // GET: PersonModels/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PersonModel personModel = db.TournamentModels.Find(id);
-            if (personModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(personModel);
-        }
-
-        // POST: PersonModels/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            PersonModel personModel = db.TournamentModels.Find(id);
-            db.TournamentModels.Remove(personModel);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }

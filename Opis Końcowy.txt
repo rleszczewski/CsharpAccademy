@@ -1,0 +1,16 @@
+https://youtu.be/kBGF6V9Szgw
+
+
+Witam. Glówne funkcjonalnosci zostaly spelnione
+(mimo spalonego dysku tydzien przed oddaniem :)).
+Logowanie na strone , oraz wyswietlanie drzewka.
+Wyswietlanie drzewka jest inicjalozowane przez 
+zewnetrzny skrypt (w sumie tak jak na wszystkich 
+stronach tego typu. Link do gita ze skryptem) 
+http://rawgit.com/teijo/jquery-bracket/master/dist/jquery.bracket.min.js.
+Baza projektu jest postawiona na SQLEXPRESS z Entity framework.
+Aby postawic projekt na swoim komputerze nalezy W package manager console 
+wpisac nastepujaco Enable-migrations , Add-migration, update-database.
+Reszta jest opisana w filmiku.
+
+

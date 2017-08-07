@@ -1,18 +1,22 @@
 ﻿@model Tournament.Models.TournamentModel
 @{
     ViewBag.Title = "Home Page";
+    //sorting elements. it shoudl be plain before we create tree bracked
     Model.Rounds.OrderBy(x => x.MatchupRound).ThenBy(x => x.MatchUpModelId);
-
+    //get all teams in tournament and serialize it to the table
     var teamsSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Rounds.Where(x => x.MatchupRound == 1).Select(x => new[] { x.Entries.ElementAt(0).TeamCompeting.TeamName, x.Entries.ElementAt(1).TeamCompeting.TeamName }));
     var results = new List<List<int[]>>();
-
+    //for all round starting from first
     foreach (var round in Model.Rounds.Select(x => x.MatchupRound).Distinct().Reverse())
     {
+        //add score to array of scores
         results.Add(Model.Rounds.Where(x => x.MatchupRound == round).Select(x => new[] { x.Entries.ElementAt(0).Score, x.Entries.ElementAt(1).Score }).ToList());
     }
 
     var resultSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(results);
 }
+
+@*script and style that we import*@
 @section scripts
 {
     <script type="text/javascript" src="http://rawgit.com/teijo/jquery-bracket/master/dist/jquery.bracket.min.js"></script>
@@ -24,6 +28,7 @@
 
 <div class="row">
     <h2>@Model.TournamentName</h2>
+    <h5>Entry Fee</h5>
     <h4>@Model.EntryFee</h4>
 
     <div id="bracketTree"></div>
@@ -34,7 +39,7 @@
     var data = {};
     data["teams"] = teams;
     data["results"] = results;
-
+//inicialization of tree
     $("#bracketTree").bracket({
         skipConsolationRound: true,
         init: data

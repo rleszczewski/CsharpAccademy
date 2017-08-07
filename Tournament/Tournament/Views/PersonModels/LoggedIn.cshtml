@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Tournament.Models.TournamentModel>
+@{
+    ViewBag.Title = "LoggedIn";
+}
+
+@if (Session["PersonId"] != null)
+{
+    <h4>Hello @Session["NickName"].ToString()</h4>
+
+}
+<h3>List of all Tournament</h3>
+@foreach (var item in Model)
+{
+    <div class="row">
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TournamentName)
+            </td>
+
+            <td>
+
+                <a href="@(Url.Action("Index", "Home") + "?id=" + item.TournamentModelId)">Go to this tournament</a>
+
+            </td>
+        </tr>
+        </div>
+}
